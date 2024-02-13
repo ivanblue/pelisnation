@@ -1,20 +1,20 @@
-import { Link } from 'react-router-dom';
-import Logo from './logo';
-import { header_links } from './constants';
 import UserButton from './user-button';
+
+import Logo from './logo';
+import MainNavigation from './main-navigation';
+import MainNavigationMobile from './main-navigation-mobile';
 
 const Header = () => {
   return (
     <div className="flex justify-between px-6 pb-5 border-b border-lightgray">
-      <nav className="flex gap-10">
+      <div className="flex justify-between gap-3 md:gap-10">
+        <MainNavigationMobile />
         <Logo />
-        {header_links.map((link) => (
-          <Link key={link.name} to={link.url} className="hover:underline">
-            {link.name}
-          </Link>
-        ))}
-      </nav>
-      <UserButton />
+        <MainNavigation />
+      </div>
+      <div className="hidden md:block">
+        <UserButton />
+      </div>
     </div>
   );
 };

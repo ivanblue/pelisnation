@@ -13,11 +13,23 @@ const YearFilter = ({ year, setYear }: YearFilterProps) => {
   }
 
   return (
-    <Select value={year} onValueChange={(value: string) => setYear(value)}>
-      <SelectTrigger className="w-36">
+    <Select
+      value={year}
+      onValueChange={(value: string) => {
+        setYear(value);
+      }}
+    >
+      <SelectTrigger className="w-36 h-[38px]">
         <SelectValue placeholder="Select a year" />
       </SelectTrigger>
-      <SelectContent>
+      {/* note: hacky solution for event propagation on browser's mobile emulation
+          mode causing a bug that selects what's beneath the selected item */}
+      <SelectContent
+        ref={(ref) => {
+          if (!ref) return;
+          ref.ontouchstart = (e) => e.preventDefault();
+        }}
+      >
         <SelectItem value="all">All</SelectItem>
         {years.map((year, index) => (
           <SelectItem key={index} value={year.toString()}>

@@ -13,7 +13,7 @@ const TypeFilter = ({ type, setType }: TypeFilterProps) => {
         <div
           key={movieType.value}
           className={cn(
-            'rounded-full bg-lightgray text-white/40 hover:bg-primary hover:text-secondary px-3 pt-[5px] cursor-pointer transition-colors text-sm',
+            'flex items-center rounded-full bg-lightgray text-white/40 hover:bg-primary hover:text-secondary px-5 h-[36px] cursor-pointer transition-colors text-sm',
             movieType.value === type ? 'bg-primary text-secondary' : 'bg-lightgray text-white/40'
           )}
           onClick={() => setType(movieType.value)}

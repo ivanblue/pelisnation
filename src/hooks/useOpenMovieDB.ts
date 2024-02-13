@@ -67,6 +67,7 @@ const useOpenMovieDB = () => {
 
     queryParams.append('apikey', OMDB_API_KEY);
     queryParams.append('i', selectedMovieID);
+    queryParams.append('plot', 'full');
 
     try {
       const response = await fetch(`${OMDB_URL}?${queryParams.toString()}`);

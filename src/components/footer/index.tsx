@@ -5,13 +5,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="flex justify-between text-sm mt-16 px-6 pt-4 border-t border-lightgray">
+    <div className="flex flex-wrap md:flex-row justify-between px-6 text-sm mt-16 pt-4 border-t border-lightgray gap-y-2">
       {footer_links.map((link) => (
         <Link key={link.name} to={link.url} className="hover:underline">
           {link.name}
         </Link>
       ))}
-      <div>
+      <div className="">
         Copyright <span className="text-primary">Pelis</span>Nation &copy; {currentYear}
       </div>
     </div>
